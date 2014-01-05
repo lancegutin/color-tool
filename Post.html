@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="http://viget.com/cache/assets/13795342247346515e99c9401ba4855cd0354211ad.css">
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+
+<style>
+	body{
+		width:740px;
+		font-size:16px;
+	}
+	#colors {
+		font-family: Monaco, 'Courier New', monospace;
+		border-collapse:collapse;
+		border:2px solid #545454;
+
+	}
+	#colors td, #colors tr {
+/*		border:2px solid #000;
+*/		padding:4px 20px 4px 20px;
+	}
+	#colors th {
+		color:#545454;
+		text-align: left;
+		vertical-align: bottom;
+	}
+	.field-1 {
+		width:82px;
+		margin-right:0px; 
+		margin-left:-10px;
+	}
+	.field-2 {
+		width:82px;
+		margin-right:0px;
+		margin-left:-10px;
+	}
+	.field-3 {
+		width:82px;
+		margin-right:20px;
+		margin-left:-10px;">
+	}
+
+	.colorblock {
+		width:34px;
+		height:34px;
+		margin-left:20px;
+		border: 1px solid #ccc;
+		-webkit-border-radius: 3px;
+		   -moz-border-radius: 3px;
+		        border-radius: 3px; 
+	}
+
+	.box {
+		border: 1px solid #ccc;
+	}
+
+	#tool {
+		border-collapse:collapse;
+		width:460px;
+	}
+
+	#tool tr, #tool td {
+		border:1px solid #CCCCCC;
+		border-top: 1px solid #FFF;
+		padding: 30px 20px 30px 20px;
+	}
+
+	#tool p {
+		margin-bottom:20px;
+	}
+
+	h3 {
+		margin:10px 0px 10px 0px;
+		padding:0px;
+	}
+
+	h4 {
+		margin-top:0px;
+		margin-bottom:4px;
+		font-size:16px;
+		font-weight:bold;
+	}
+
+	input {
+		font-family: Monaco, 'Courier New', monospace;
+	}
+
+	.form-group {
+		margin:0px;
+	}
+
+	.percent {
+		margin-left:-20px;
+		font-weight:bold;
+	}
+
+	.tabs {
+		width:460px;
+	}
+
+	.nav-tabs {
+		border-top: 1px;
+		border-right:1px;
+		border-bottom:0px;
+		border-left:1px;
+		border-style:solid;
+		border-color:#ccc;
+	}
+
+	.nav-tabs>li>a {
+		border:0px;
+		border-radius:0px;
+	}
+
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	border:0px;
+	}
+
+	.calculate, .calculate:hover {
+		padding: 10px 15px 10px 0px;
+		text-align: center;
+	}
+
+	.calculate:hover{
+		background-color: #eee;
+	}
+
+	a:hover{
+		text-decoration: none;
+	}
+
+	</style>
+<script src="htp://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script language="JavaScript">
+
+	// console.log("id: " + id);
+	// console.log("sColor: " + sColor);
+	// console.log(elem);
+
+
+
+	function rgbToHex(R,G,B) { return toHex(R)+toHex(G)+toHex(B); }
+	function toHex(n) {
+	 n = parseInt(n,10);
+	 if (isNaN(n)) return "00";
+	 n = Math.max(0,Math.min(n,255));
+	 return "0123456789ABCDEF".charAt((n-n%16)/16)
+	      + "0123456789ABCDEF".charAt(n%16);
+	}
+
+	function cutHex(h) { return (h.charAt(0)=="#") ? h.substring(1,7) : h}
+	function hexToR(h) { return parseInt((cutHex(h)).substring(0,2),16) }
+	function hexToG(h) { return parseInt((cutHex(h)).substring(2,4),16) }
+	function hexToB(h) { return parseInt((cutHex(h)).substring(4,6),16) }
+
+	function setBgColorById(id,sColor) {
+		var elem;
+		elem=document.getElementById(id);
+		elem.style.backgroundColor="#"+sColor;
+		console.log("sColor: " + sColor);
+		console.log("sNewColor: " + sNewColor);
+		console.log("something: " + b.value);
+	}
+
+	function syncR(){
+		g.value = r.value;
+		b.value = r.value;
+	}
+
+	function syncG(){
+		b.value = g.value;
+		r.value = g.value;
+	}
+
+	function syncB(){
+		g.value = b.value;
+		r.value = b.value;
+	}
+
+	function syncR2(){
+		g2.value = r2.value;
+		b2.value = r2.value;
+	}
+
+	function syncG2(){
+		b2.value = g2.value;
+		r2.value = g2.value;
+	}
+
+	function syncB2(){
+		g2.value = b2.value;
+		r2.value = b2.value;
+	}
+
+	function calculate(){
+		var add = Number(r.value) + Number(r2.value);
+		console.log("add: " + add);
+	}
+
+</script>
+
+</head>
+<body>
+
+<div class="tabs">
+<ul class="nav nav-tabs nav-justified tabs" id="myTab">
+  <li class="active" style="border-right:1px solid #CCCCCC;"><a href="#rgb" data-toggle="tab"><h3>RGB</h3></a></li>
+  <li><a href="#hex" data-toggle="tab"><h3>HEX</h3></a></li>
+</ul>
+</div>
+
+
+<div class="tab-content">
+	 <div class="tab-pane active" id="rgb">
+		<!-- Start of background color section -->
+		<table id="tool">
+			<tr><td>
+				<h4>Background Color</h4>
+				<p>The bottom layer of color.</p>
+
+					<form class="form-horizontal" role="form">
+						 <div class="form-group">
+							<label for="r" class="col-lg-1 control-label">R:</label>
+
+							<div class="col-lg-2 field-1">
+								<input type="text" class="form-control" id="r" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor=rgbToHex(this.form.r.value,this.form.r.value,this.form.r.value);setBgColorById('colorSample',sNewColor);syncR()">
+							</div>
+
+							<label for="g" class="col-lg-1 control-label">G:</label>
+							<div class="col-lg-2 field-2">
+								<input type="text" class="form-control" id="g" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor=rgbToHex(this.form.g.value,this.form.g.value,this.form.g.value);setBgColorById('colorSample',sNewColor);syncG()">
+							</div>
+
+							<label for="b" class="col-lg-1 control-label">B:</label>
+							<div class="col-lg-2 field-3">
+								<input type="text" class="form-control" id="b" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor=rgbToHex(this.form.b.value,this.form.b.value,this.form.b.value);setBgColorById('colorSample',sNewColor);syncB()">
+							</div>
+
+							<div id="colorSample" class="col-lg-1 colorblock"></div>
+
+						</div>
+					</form>
+			</td></tr>
+
+			<!-- Start of target color section -->
+			<tr><td>
+				<h4>Target Color</h4>
+				<p>The desired color of the object to be manipulated.</p>
+
+					<form class="form-horizontal" role="form">
+						 <div class="form-group">
+							<label for="r2" class="col-lg-1 control-label">R:</label>
+
+							<div class="col-lg-2 field-1">
+								<input type="text" class="form-control" id="r2" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.r2.value,this.form.r2.value,this.form.r2.value);setBgColorById('colorSample2',sNewColor2);syncR2();">
+							</div>
+
+							<label for="g2" class="col-lg-1 control-label">G:</label>
+							<div class="col-lg-2 field-2">
+								<input type="text" class="form-control" id="g2" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.g2.value,this.form.g2.value,this.form.g2.value);setBgColorById('colorSample2',sNewColor2);syncG2()">
+							</div>
+
+							<label for="b2" class="col-lg-1 control-label">B:</label>
+							<div class="col-lg-2 field-3">
+								<input type="text" class="form-control" id="b2" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.b2.value,this.form.b2.value,this.form.b2.value);setBgColorById('colorSample2',sNewColor2);syncB2();calculate();">
+							</div>
+
+							<div id="colorSample2" class="col-lg-1 colorblock"></div>
+							
+						</div>
+					</form>
+			</tr></td>
+
+			<!-- Start of overlay color section -->
+
+			<tr><td>
+				<h4>Overlay Color</h4>
+				<p>The default color at 100% opacity of the object to be manipulated.</p>
+
+				<form class="form-horizontal" role="form">
+					 <div class="form-group">
+						<label for="r3" class="col-lg-1 control-label">R:</label>
+
+						<div class="col-lg-2 field-1">
+							<input type="text" class="form-control" id="r3" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor3=rgbToHex(this.form.r3.value,this.form.r3.value,this.form.r3.value);setBgColorById('colorSample3',sNewColor3);syncR3();">
+						</div>
+
+						<label for="g3" class="col-lg-1 control-label">G:</label>
+						<div class="col-lg-2 field-2">
+							<input type="text" class="form-control" id="g3" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.g3.value,this.form.g3.value,this.form.g3.value);setBgColorById('colorSample2',sNewColor3);syncG3()">
+						</div>
+
+						<label for="b3" class="col-lg-1 control-label">B:</label>
+						<div class="col-lg-2 field-3">
+							<input type="text" class="form-control" id="b3" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.b3.value,this.form.b3.value,this.form.b3.value);setBgColorById('colorSample3',sNewColor3);syncB3();calculate();">
+						</div>
+
+						<div id="colorSample3" class="col-lg-1 colorblock"></div>
+						
+					</div>
+				</form>
+			</tr></td>
+
+			<!-- Start of opacity section -->
+
+			<tr><td>
+				<h4>Overlay Opacity</h4>
+				<p>The calculated opacity of the overlay color to achieve the target color.</p>
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<div class="col-lg-2" style="width:120px;">
+								<input type="text" class="form-control" id="opacity" maxlength="4" value="" onfocus="" onblur="">
+							</div>
+						<div><label for="opacity" class="col-lg-1 control-label percent">%</label></div>
+						</div>
+						</form>
+			</tr></td>
+			<tr><td style="margin:0px; padding:0px">
+				<a href="#" style="display:block"><div class="calculate"><h3>CALCULATE</hr></div></a>
+			</tr></td>
+		</table>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="tab-pane" id="hex">
+		<table id="tool">
+			<tr><td>
+				<h4>Background Color - HEX</h4>
+				<p>The bottom layer of color.</p>
+
+					<form class="form-horizontal" role="form">
+						 <div class="form-group">
+							<label for="r" class="col-lg-1 control-label">#</label>
+
+							<div class="col-lg-2 field-1" style="width:120px">
+								<input type="text" class="form-control" id="r" maxlength="6" value="FFFFFF" onfocus="this.form.hex.value=''" onblur="sNewColor=rgbToHex(this.form.r.value,this.form.r.value,this.form.r.value);setBgColorById('colorSample',sNewColor);syncR()">
+							</div>
+
+							<div id="colorSample" class="col-lg-1 colorblock"></div>
+
+						</div>
+					</form>
+			</td></tr>
+
+			<!-- Start of target color section -->
+			<tr><td>
+				<h4>Target Color</h4>
+				<p>The desired color of the object to be manipulated.</p>
+
+					<form class="form-horizontal" role="form">
+						 <div class="form-group">
+							<label for="r2" class="col-lg-1 control-label">#</label>
+
+							<div class="col-lg-2 field-1" style="width:120px">
+								<input type="text" class="form-control" id="r2" maxlength="6" value="FFFFFF" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.r2.value,this.form.r2.value,this.form.r2.value);setBgColorById('colorSample2',sNewColor2);syncR2();">
+							</div>
+
+							<div id="colorSample2" class="col-lg-1 colorblock"></div>
+							
+						</div>
+					</form>
+			</tr></td>
+
+			<!-- Start of overlay color section -->
+
+			<tr><td>
+				<h4>Overlay Color</h4>
+				<p>The default color at 100% opacity of the object to be manipulated.</p>
+
+				<form class="form-horizontal" role="form">
+					 <div class="form-group">
+						<label for="r3" class="col-lg-1 control-label">#</label>
+
+					<div class="col-lg-2 field-1" style="width:120px">
+							<input type="text" class="form-control" id="r3" maxlength="6" value="FFFFFF" onfocus="this.form.hex.value=''" onblur="sNewColor3=rgbToHex(this.form.r3.value,this.form.r3.value,this.form.r3.value);setBgColorById('colorSample3',sNewColor3);syncR3();">
+						</div>
+
+						<div id="colorSample3" class="col-lg-1 colorblock"></div>
+						
+					</div>
+				</form>
+			</tr></td>
+
+			<!-- Start of opacity section -->
+
+			<tr><td>
+				<h4>Overlay Opacity</h4>
+				<p>The calculated opacity of the overlay color to achieve the target color.</p>
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<div class="col-lg-2" style="width:120px;">
+								<input type="text" class="form-control" id="opacity" maxlength="4" value="" onfocus="" onblur="">
+							</div>
+						<div><label for="opacity" class="col-lg-1 control-label percent">%</label></div>
+						</div>
+						</form>
+			</tr></td>
+			<tr><td style="margin:0px; padding:0px">
+				<a href="#" style="display:block"><div class="calculate"><h3>CALCULATE</hr></div></a>
+			</tr></td>
+		</table>		
+	</div>
+</div>
+
+
+<!-- <input type="button" name="btn" value="Convert to Hex" onclick="sNewColor=rgbToHex(this.form.r.value,this.form.g.value,this.form.b.value);this.form.hex.value=sNewColor;setBgColorById('colorSample',sNewColor)">
+<input type="text" name="hex" size="8"></nobr> -->
+
+
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show')
+  })
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
