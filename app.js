@@ -5,61 +5,51 @@
 
 
 
-function rgbToHex(R,G,B) { return toHex(R)+toHex(G)+toHex(B); }
-function toHex(n) {
- n = parseInt(n,10);
- if (isNaN(n)) return "00";
- n = Math.max(0,Math.min(n,255));
- return "0123456789ABCDEF".charAt((n-n%16)/16)
-      + "0123456789ABCDEF".charAt(n%16);
-}
 
-function cutHex(h) { return (h.charAt(0)=="#") ? h.substring(1,7) : h}
-function hexToR(h) { return parseInt((cutHex(h)).substring(0,2),16) }
-function hexToG(h) { return parseInt((cutHex(h)).substring(2,4),16) }
-function hexToB(h) { return parseInt((cutHex(h)).substring(4,6),16) }
 
-function setBgColorById(id,sColor) {
-	var elem;
-	elem=document.getElementById(id);
-	elem.style.backgroundColor="#"+sColor;
-	console.log("sColor: " + sColor);
-	console.log("sNewColor: " + sNewColor);
-	console.log("something: " + b.value);
-}
+var COLOR = {
+	rgbToHex: function (R,G,B) {
+		var toHex =  function (n) {
+			n = parseInt(n,10);
+			if (isNaN(n)) return "00";
+			n = Math.max(0,Math.min(n,255));
+			return "0123456789ABCDEF".charAt((n-n%16)/16) + "0123456789ABCDEF".charAt(n%16);
+		};
 
-function syncR(){
-	g.value = r.value;
-	b.value = r.value;
-}
+		return toHex(R)+toHex(G)+toHex(B);
+	},
 
-function syncG(){
-	b.value = g.value;
-	r.value = g.value;
-}
+	setup: function() {
+		this.vars();
+		this.binds();
+	},
 
-function syncB(){
-	g.value = b.value;
-	r.value = b.value;
-}
+	vars: function() {
+		this.$body = $('body');
+		this.$options = $('.color-picker-option');
+	},
 
-function syncR2(){
-	g2.value = r2.value;
-	b2.value = r2.value;
-}
+	binds: function() {
+		var self = this;
 
-function syncG2(){
-	b2.value = g2.value;
-	r2.value = g2.value;
-}
+		this.$options.on('blur', this.updateColor.bind(this));
+	},
 
-function syncB2(){
-	g2.value = b2.value;
-	r2.value = b2.value;
-}
+	updateColor: function(e) {
+		var $item = $(e.currentTarget);
+		var className = $item.attr('class');
+		var targetClassName = '.'+className.substr(className.lastIndexOf(" ") + 1);
+		var $targets = $(targetClassName);
+		var $closestColorBox = $targets.eq(0).parents('.form-group').find('.colorblock');
+		var color = this.rgbToHex($targets.eq(0).val(), $targets.eq(1).val(), $targets.eq(2).val());
 
-function calculate(){
-	var add = Number(r.value) + Number(r2.value);
-	console.log("add: " + add);
-}
+		// Assign color values to other inputs
+		$targets.val($item.val());
 
+		// Assign color to closest color box
+		$closestColorBox.css('background-color', '#'+color);
+	}
+
+};
+
+COLOR.setup();

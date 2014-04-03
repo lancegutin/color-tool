@@ -4,8 +4,6 @@
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" href="http://viget.com/cache/assets/13795342247346515e99c9401ba4855cd0354211ad.css">
 	<link rel="stylesheet" href="stylesheet.css">
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="app.js"></script>
 </head>
 <body>
 
@@ -15,7 +13,6 @@
 		<li><a href="#hex" data-toggle="tab"><h3>HEX</h3></a></li>
 	</ul>
 </div>
-
 
 <div class="tab-content">
 	 <div class="tab-pane active" id="rgb">
@@ -27,23 +24,23 @@
 
 					<form class="form-horizontal" role="form">
 						 <div class="form-group">
-							<label for="r" class="col-lg-1 control-label">R:</label>
 
+							<label for="background-color--r" class="col-lg-1 control-label">R:</label>
 							<div class="col-lg-2 field-1">
-								<input type="text" class="form-control" id="r" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor=rgbToHex(this.form.r.value,this.form.r.value,this.form.r.value);setBgColorById('colorSample',sNewColor);syncR()">
+								<input type="text" class="form-control color-picker-option background-color" id="background-color--r" maxlength="3" value="255">
 							</div>
 
-							<label for="g" class="col-lg-1 control-label">G:</label>
+							<label for="background-color--g" class="col-lg-1 control-label">G:</label>
 							<div class="col-lg-2 field-2">
-								<input type="text" class="form-control" id="g" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor=rgbToHex(this.form.g.value,this.form.g.value,this.form.g.value);setBgColorById('colorSample',sNewColor);syncG()">
+								<input type="text" class="form-control color-picker-option background-color" id="background-color--g" maxlength="3" value="255">
 							</div>
 
-							<label for="b" class="col-lg-1 control-label">B:</label>
+							<label for="background-color--b" class="col-lg-1 control-label">B:</label>
 							<div class="col-lg-2 field-3">
-								<input type="text" class="form-control" id="b" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor=rgbToHex(this.form.b.value,this.form.b.value,this.form.b.value);setBgColorById('colorSample',sNewColor);syncB()">
+								<input type="text" class="form-control color-picker-option background-color" id="background-color--b" maxlength="3" value="255">
 							</div>
 
-							<div id="colorSample" class="col-lg-1 colorblock"></div>
+							<div id="background-color" class="col-lg-1 colorblock"></div>
 
 						</div>
 					</form>
@@ -56,23 +53,23 @@
 
 					<form class="form-horizontal" role="form">
 						 <div class="form-group">
-							<label for="r2" class="col-lg-1 control-label">R:</label>
 
+							<label for="target-color--r" class="col-lg-1 control-label">R:</label>
 							<div class="col-lg-2 field-1">
-								<input type="text" class="form-control" id="r2" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.r2.value,this.form.r2.value,this.form.r2.value);setBgColorById('colorSample2',sNewColor2);syncR2();">
+								<input type="text" class="form-control color-picker-option target-color" id="target-color--r" maxlength="3" value="255">
 							</div>
 
-							<label for="g2" class="col-lg-1 control-label">G:</label>
+							<label for="target-color--g" class="col-lg-1 control-label">G:</label>
 							<div class="col-lg-2 field-2">
-								<input type="text" class="form-control" id="g2" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.g2.value,this.form.g2.value,this.form.g2.value);setBgColorById('colorSample2',sNewColor2);syncG2()">
+								<input type="text" class="form-control color-picker-option target-color" id="target-color--g" maxlength="3" value="255">
 							</div>
 
-							<label for="b2" class="col-lg-1 control-label">B:</label>
+							<label for="target-color--b" class="col-lg-1 control-label">B:</label>
 							<div class="col-lg-2 field-3">
-								<input type="text" class="form-control" id="b2" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.b2.value,this.form.b2.value,this.form.b2.value);setBgColorById('colorSample2',sNewColor2);syncB2();calculate();">
+								<input type="text" class="form-control color-picker-option target-color" id="target-color--b" maxlength="3" value="255">
 							</div>
 
-							<div id="colorSample2" class="col-lg-1 colorblock"></div>
+							<div id="target-color" class="col-lg-1 colorblock"></div>
 
 						</div>
 					</form>
@@ -86,23 +83,23 @@
 
 				<form class="form-horizontal" role="form">
 					 <div class="form-group">
-						<label for="r3" class="col-lg-1 control-label">R:</label>
 
+						<label for="overlay-color--r" class="col-lg-1 control-label">R:</label>
 						<div class="col-lg-2 field-1">
-							<input type="text" class="form-control" id="r3" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor3=rgbToHex(this.form.r3.value,this.form.r3.value,this.form.r3.value);setBgColorById('colorSample3',sNewColor3);syncR3();">
+							<input type="text" class="form-control color-picker-option overlay-color" id="overlay-color--r" maxlength="3" value="255">
 						</div>
 
-						<label for="g3" class="col-lg-1 control-label">G:</label>
+						<label for="overlay-color--g" class="col-lg-1 control-label">G:</label>
 						<div class="col-lg-2 field-2">
-							<input type="text" class="form-control" id="g3" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.g3.value,this.form.g3.value,this.form.g3.value);setBgColorById('colorSample2',sNewColor3);syncG3()">
+							<input type="text" class="form-control color-picker-option overlay-color" id="overlay-color--g" maxlength="3" value="255">
 						</div>
 
-						<label for="b3" class="col-lg-1 control-label">B:</label>
+						<label for="overlay-color--b" class="col-lg-1 control-label">B:</label>
 						<div class="col-lg-2 field-3">
-							<input type="text" class="form-control" id="b3" maxlength="3" value="255" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.b3.value,this.form.b3.value,this.form.b3.value);setBgColorById('colorSample3',sNewColor3);syncB3();calculate();">
+							<input type="text" class="form-control color-picker-option overlay-color" id="overlay-color--b" maxlength="3" value="255">
 						</div>
 
-						<div id="colorSample3" class="col-lg-1 colorblock"></div>
+						<div id="overlay-color" class="col-lg-1 colorblock"></div>
 
 					</div>
 				</form>
@@ -116,32 +113,17 @@
 					<form class="form-horizontal" role="form">
 						<div class="form-group">
 							<div class="col-lg-2" style="width:120px;">
-								<input type="text" class="form-control" id="opacity" maxlength="4" value="" onfocus="" onblur="">
+								<input type="text" class="form-control" id="opacity" maxlength="4" value="">
 							</div>
 						<div><label for="opacity" class="col-lg-1 control-label percent">%</label></div>
 						</div>
 						</form>
 			</tr></td>
-			<tr><td style="margin:0px; padding:0px">
+			<tr><td>
 				<a href="#" style="display:block"><div class="calculate"><h3>CALCULATE</hr></div></a>
 			</tr></td>
 		</table>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -156,7 +138,7 @@
 							<label for="r" class="col-lg-1 control-label">#</label>
 
 							<div class="col-lg-2 field-1" style="width:120px">
-								<input type="text" class="form-control" id="r" maxlength="6" value="FFFFFF" onfocus="this.form.hex.value=''" onblur="sNewColor=rgbToHex(this.form.r.value,this.form.r.value,this.form.r.value);setBgColorById('colorSample',sNewColor);syncR()">
+								<input type="text" class="form-control" id="r" maxlength="6" value="FFFFFF">
 							</div>
 
 							<div id="colorSample" class="col-lg-1 colorblock"></div>
@@ -175,7 +157,7 @@
 							<label for="r2" class="col-lg-1 control-label">#</label>
 
 							<div class="col-lg-2 field-1" style="width:120px">
-								<input type="text" class="form-control" id="r2" maxlength="6" value="FFFFFF" onfocus="this.form.hex.value=''" onblur="sNewColor2=rgbToHex(this.form.r2.value,this.form.r2.value,this.form.r2.value);setBgColorById('colorSample2',sNewColor2);syncR2();">
+								<input type="text" class="form-control" id="r2" maxlength="6" value="FFFFFF">
 							</div>
 
 							<div id="colorSample2" class="col-lg-1 colorblock"></div>
@@ -195,7 +177,7 @@
 						<label for="r3" class="col-lg-1 control-label">#</label>
 
 					<div class="col-lg-2 field-1" style="width:120px">
-							<input type="text" class="form-control" id="r3" maxlength="6" value="FFFFFF" onfocus="this.form.hex.value=''" onblur="sNewColor3=rgbToHex(this.form.r3.value,this.form.r3.value,this.form.r3.value);setBgColorById('colorSample3',sNewColor3);syncR3();">
+							<input type="text" class="form-control" id="r3" maxlength="6" value="FFFFFF">
 						</div>
 
 						<div id="colorSample3" class="col-lg-1 colorblock"></div>
@@ -212,32 +194,27 @@
 					<form class="form-horizontal" role="form">
 						<div class="form-group">
 							<div class="col-lg-2" style="width:120px;">
-								<input type="text" class="form-control" id="opacity" maxlength="4" value="" onfocus="" onblur="">
+								<input type="text" class="form-control" id="opacity" maxlength="4" value="">
 							</div>
 						<div><label for="opacity" class="col-lg-1 control-label percent">%</label></div>
 						</div>
 						</form>
 			</tr></td>
-			<tr><td style="margin:0px; padding:0px">
+			<tr><td>
 				<a href="#" style="display:block"><div class="calculate"><h3>CALCULATE</hr></div></a>
 			</tr></td>
 		</table>
 	</div>
 </div>
 
-
-<!-- <input type="button" name="btn" value="Convert to Hex" onclick="sNewColor=rgbToHex(this.form.r.value,this.form.g.value,this.form.b.value);this.form.hex.value=sNewColor;setBgColorById('colorSample',sNewColor)">
-<input type="text" name="hex" size="8"></nobr> -->
-
-
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script>
   $(function () {
-    $('#myTab a:last').tab('show')
+    $('#myTab a:first').tab('show')
   })
 </script>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="http://code.jquery.com/jquery.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="app.js"></script>
+
 </body>
 </html>
