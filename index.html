@@ -27,20 +27,20 @@
 
 							<label for="background-color--r" class="col-lg-1 control-label">R:</label>
 							<div class="col-lg-2 field-1">
-								<input type="text" class="form-control color-picker-option background-color" id="background-color--r" maxlength="3" value="255">
+								<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--r" maxlength="3" value="">
 							</div>
 
 							<label for="background-color--g" class="col-lg-1 control-label">G:</label>
 							<div class="col-lg-2 field-2">
-								<input type="text" class="form-control color-picker-option background-color" id="background-color--g" maxlength="3" value="255">
+								<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--g" maxlength="3" value="">
 							</div>
 
 							<label for="background-color--b" class="col-lg-1 control-label">B:</label>
 							<div class="col-lg-2 field-3">
-								<input type="text" class="form-control color-picker-option background-color" id="background-color--b" maxlength="3" value="255">
+								<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--b" maxlength="3" value="">
 							</div>
 
-							<div id="background-color" class="col-lg-1 colorblock"></div>
+							<div id="rgb-background-color" class="col-lg-1 colorblock"></div>
 
 						</div>
 					</form>
@@ -56,20 +56,20 @@
 
 							<label for="target-color--r" class="col-lg-1 control-label">R:</label>
 							<div class="col-lg-2 field-1">
-								<input type="text" class="form-control color-picker-option target-color" id="target-color--r" maxlength="3" value="255">
+								<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--r" maxlength="3" value="">
 							</div>
 
 							<label for="target-color--g" class="col-lg-1 control-label">G:</label>
 							<div class="col-lg-2 field-2">
-								<input type="text" class="form-control color-picker-option target-color" id="target-color--g" maxlength="3" value="255">
+								<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--g" maxlength="3" value="">
 							</div>
 
 							<label for="target-color--b" class="col-lg-1 control-label">B:</label>
 							<div class="col-lg-2 field-3">
-								<input type="text" class="form-control color-picker-option target-color" id="target-color--b" maxlength="3" value="255">
+								<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--b" maxlength="3" value="">
 							</div>
 
-							<div id="target-color" class="col-lg-1 colorblock"></div>
+							<div id="rgb-target-color" class="col-lg-1 colorblock"></div>
 
 						</div>
 					</form>
@@ -86,20 +86,20 @@
 
 						<label for="overlay-color--r" class="col-lg-1 control-label">R:</label>
 						<div class="col-lg-2 field-1">
-							<input type="text" class="form-control color-picker-option overlay-color" id="overlay-color--r" maxlength="3" value="255">
+							<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--r" maxlength="3" value="">
 						</div>
 
 						<label for="overlay-color--g" class="col-lg-1 control-label">G:</label>
 						<div class="col-lg-2 field-2">
-							<input type="text" class="form-control color-picker-option overlay-color" id="overlay-color--g" maxlength="3" value="255">
+							<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--g" maxlength="3" value="">
 						</div>
 
 						<label for="overlay-color--b" class="col-lg-1 control-label">B:</label>
 						<div class="col-lg-2 field-3">
-							<input type="text" class="form-control color-picker-option overlay-color" id="overlay-color--b" maxlength="3" value="255">
+							<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--b" maxlength="3" value="">
 						</div>
 
-						<div id="overlay-color" class="col-lg-1 colorblock"></div>
+						<div id="rgb-overlay-color" class="col-lg-1 colorblock"></div>
 
 					</div>
 				</form>
@@ -113,7 +113,7 @@
 					<form class="form-horizontal" role="form">
 						<div class="form-group">
 							<div class="col-lg-2" style="width:120px;">
-								<input type="text" class="form-control" id="opacity" maxlength="4" value="">
+								<input type="text" class="form-control" id="rgb-opacity" maxlength="4" value="">
 							</div>
 						<div><label for="opacity" class="col-lg-1 control-label percent">%</label></div>
 						</div>
@@ -130,7 +130,7 @@
 	<div class="tab-pane" id="hex">
 		<table id="tool">
 			<tr><td>
-				<h4>Background Color - HEX</h4>
+				<h4>Background Color</h4>
 				<p>The bottom layer of color.</p>
 
 					<form class="form-horizontal" role="form">
@@ -138,10 +138,10 @@
 							<label for="r" class="col-lg-1 control-label">#</label>
 
 							<div class="col-lg-2 field-1" style="width:120px">
-								<input type="text" class="form-control" id="r" maxlength="6" value="FFFFFF">
+								<input type="text" class="form-control color-picker-option hex-background-color" id="r" maxlength="6" value="FFFFFF">
 							</div>
 
-							<div id="colorSample" class="col-lg-1 colorblock"></div>
+							<div id="hex-background-color" class="col-lg-1 colorblock"></div>
 
 						</div>
 					</form>
@@ -157,10 +157,10 @@
 							<label for="r2" class="col-lg-1 control-label">#</label>
 
 							<div class="col-lg-2 field-1" style="width:120px">
-								<input type="text" class="form-control" id="r2" maxlength="6" value="FFFFFF">
+								<input type="text" class="form-control color-picker-option hex-target-color" id="r2" maxlength="6" value="FFFFFF">
 							</div>
 
-							<div id="colorSample2" class="col-lg-1 colorblock"></div>
+							<div id="hex-target-color" class="col-lg-1 colorblock"></div>
 
 						</div>
 					</form>
@@ -177,10 +177,10 @@
 						<label for="r3" class="col-lg-1 control-label">#</label>
 
 					<div class="col-lg-2 field-1" style="width:120px">
-							<input type="text" class="form-control" id="r3" maxlength="6" value="FFFFFF">
+							<input type="text" class="form-control color-picker-option hex-overlay-color" id="r3" maxlength="6" value="FFFFFF">
 						</div>
 
-						<div id="colorSample3" class="col-lg-1 colorblock"></div>
+						<div id="hex-overlay-color" class="col-lg-1 colorblock"></div>
 
 					</div>
 				</form>
