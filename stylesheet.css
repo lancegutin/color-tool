@@ -10,8 +10,7 @@ body {
 
 }
 #colors td, #colors tr {
-/*		border:2px solid #000;
-*/		padding:4px 20px 4px 20px;
+	padding:4px 20px 4px 20px;
 }
 #colors th {
 	color:#545454;

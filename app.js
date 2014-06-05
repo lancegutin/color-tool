@@ -1,6 +1,8 @@
 
 var COLOR = {
 	rgbToHex: function (R,G,B) {
+		if (!R && !G && !B) return;
+
 		var toHex =  function (n) {
 			n = parseInt(n,10);
 			if (isNaN(n)) return "00";
@@ -20,13 +22,21 @@ var COLOR = {
 		this.$body    = $('body');
 		this.$options = $('.color-picker-option');
 		this.$submit  = $('.calculate');
+		this.$reset   = $('.reset');
+		this.$form    = $('form');
 	},
 
 	binds: function() {
-		var self = this;
-
 		this.$options.on('blur focus', this.updateColor.bind(this));
 		this.$submit.on('click', this.updateOverlayOpacity.bind(this));
+		this.$reset.on('click', this.reset.bind(this));
+	},
+
+	reset: function() {
+		this.$form.each(function(){
+			this.reset();
+		});
+		$('.colorblock').css('background-color', '#fff');
 	},
 
 	updateColor: function(e) {
@@ -37,10 +47,10 @@ var COLOR = {
 		var $closestColorBox = $targets.eq(0).parents('.form-group').find('.colorblock');
 		var color;
 
-		color = this.rgbToHex($targets.eq(0).val(), $targets.eq(1).val(), $targets.eq(2).val());
-
 		// Assign color values to other inputs
 		$targets.val($item.val());
+
+		color = this.rgbToHex($targets.eq(0).val(), $targets.eq(1).val(), $targets.eq(2).val());
 
 		$closestColorBox.css('background-color', '#'+color);
 	},
@@ -48,15 +58,26 @@ var COLOR = {
 	updateOverlayOpacity: function(e) {
 		e.preventDefault();
 
-		var $final      = $('#rgb-opacity');
-		var $background = $('#background-color--r');
-		var $overlay    = $('#overlay-color--r');
-		var $target     = $('#target-color--r');
+		var $row1 = $('#background-color--r').val();
+		var $row2 = $('#target-color--r').val();
+		var $row3 = $('#overlay-color--r').val();
+		var $row4 = $('#rgb-opacity').val();
+		var result;
 
-		var result = ($target.val() - $background.val()) / ($overlay.val() - $background.val());
-		console.log('COLOR!', result);
+		if ($row1 && $row2 && $row3) {
+			result = ($row2 - $row1) / ($row3 - $row1);
+		}
+		else if ($row1 && $row2 && $row4) {
+			result = ($row2 - (1 - $row4) * $row1) / $row4;
+		}
+		else if ($row1 && $row3 && $row4) {
+			result = ($row4 * $row3) + (1 - $row4) * $row1;
+		}
+		else if ($row2 && $row3 && $row4) {
+			result = ($row2 - $row4 * row3) / (1 - $row4);
+		}
 
-		$final.val(result * 100);
+		$row4.val(result * 100);
 	}
 
 };
