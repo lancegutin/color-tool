@@ -47,6 +47,9 @@ var COLOR = {
 		var $closestColorBox = $targets.eq(0).parents('.form-group').find('.colorblock');
 		var color;
 
+		if ($item.val() > 255) $item.val(255);
+		if ($item.val() < 0) $item.val(0);
+
 		// Assign color values to other inputs
 		$targets.val($item.val());
 
@@ -58,26 +61,24 @@ var COLOR = {
 	updateOverlayOpacity: function(e) {
 		e.preventDefault();
 
-		var $row1 = $('#background-color--r').val();
-		var $row2 = $('#target-color--r').val();
-		var $row3 = $('#overlay-color--r').val();
-		var $row4 = $('#rgb-opacity').val();
+		var $row1 = $('#background-color--r');
+		var $row2 = $('#target-color--r');
+		var $row3 = $('#overlay-color--r');
+		var $row4 = $('#rgb-opacity');
 		var result;
 
-		if ($row1 && $row2 && $row3) {
-			result = ($row2 - $row1) / ($row3 - $row1);
+		if ($row1.val() && $row2.val() && $row3.val()) {
+			$row4.val(($row2.val() - $row1.val()) / ($row3.val() - $row1.val()));
 		}
-		else if ($row1 && $row2 && $row4) {
-			result = ($row2 - (1 - $row4) * $row1) / $row4;
+		else if ($row1.val() && $row2.val() && $row4.val()) {
+			$row3.val(($row2.val() - (1 - $row4.val()) * $row1.val()) / $row4.val());
 		}
-		else if ($row1 && $row3 && $row4) {
-			result = ($row4 * $row3) + (1 - $row4) * $row1;
+		else if ($row1.val() && $row3.val() && $row4.val()) {
+			$row2.val(($row4.val() * $row3.val()) + (1 - $row4.val()) * $row1.val());
 		}
-		else if ($row2 && $row3 && $row4) {
-			result = ($row2 - $row4 * row3) / (1 - $row4);
+		else if ($row2.val() && $row3.val() && $row4.val()) {
+			$row1.val(($row2.val() - $row4.val() * $row3.val()) / (1 - $row4.val()));
 		}
-
-		$row4.val(result * 100);
 	}
 
 };
