@@ -37,14 +37,10 @@ var COLOR = {
 		var $closestColorBox = $targets.eq(0).parents('.form-group').find('.colorblock');
 		var color;
 
-		if ($targets.parents('#rgb').length > 0) {
-			color = this.rgbToHex($targets.eq(0).val(), $targets.eq(1).val(), $targets.eq(2).val());
+		color = this.rgbToHex($targets.eq(0).val(), $targets.eq(1).val(), $targets.eq(2).val());
 
-			// Assign color values to other inputs
-			$targets.val($item.val());
-		} else {
-			color = $targets.val();
-		}
+		// Assign color values to other inputs
+		$targets.val($item.val());
 
 		$closestColorBox.css('background-color', '#'+color);
 	},

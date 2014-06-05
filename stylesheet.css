@@ -51,6 +51,7 @@ body {
 #tool {
 	border-collapse:collapse;
 	width:460px;
+	margin: 0 auto;
 }
 
 #tool tr, #tool td {

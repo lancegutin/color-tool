@@ -7,213 +7,114 @@
 </head>
 <body>
 
-<div class="tabs">
-	<ul class="nav nav-tabs nav-justified tabs" id="myTab">
-		<li class="active" style="border-right:1px solid #CCCCCC;"><a href="#rgb" data-toggle="tab"><h3>RGB</h3></a></li>
-		<li><a href="#hex" data-toggle="tab"><h3>HEX</h3></a></li>
-	</ul>
-</div>
+<table id="tool">
+	<tr><td>
+		<h4>Background Color</h4>
+		<p>The bottom layer of color.</p>
 
-<div class="tab-content">
-	 <div class="tab-pane active" id="rgb">
-		<!-- Start of background color section -->
-		<table id="tool">
-			<tr><td>
-				<h4>Background Color</h4>
-				<p>The bottom layer of color.</p>
+			<form class="form-horizontal" role="form">
+				 <div class="form-group">
 
-					<form class="form-horizontal" role="form">
-						 <div class="form-group">
-
-							<label for="background-color--r" class="col-lg-1 control-label">R:</label>
-							<div class="col-lg-2 field-1">
-								<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--r" maxlength="3" value="">
-							</div>
-
-							<label for="background-color--g" class="col-lg-1 control-label">G:</label>
-							<div class="col-lg-2 field-2">
-								<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--g" maxlength="3" value="">
-							</div>
-
-							<label for="background-color--b" class="col-lg-1 control-label">B:</label>
-							<div class="col-lg-2 field-3">
-								<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--b" maxlength="3" value="">
-							</div>
-
-							<div id="rgb-background-color" class="col-lg-1 colorblock"></div>
-
-						</div>
-					</form>
-			</td></tr>
-
-			<!-- Start of target color section -->
-			<tr><td>
-				<h4>Target Color</h4>
-				<p>The desired color of the object to be manipulated.</p>
-
-					<form class="form-horizontal" role="form">
-						 <div class="form-group">
-
-							<label for="target-color--r" class="col-lg-1 control-label">R:</label>
-							<div class="col-lg-2 field-1">
-								<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--r" maxlength="3" value="">
-							</div>
-
-							<label for="target-color--g" class="col-lg-1 control-label">G:</label>
-							<div class="col-lg-2 field-2">
-								<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--g" maxlength="3" value="">
-							</div>
-
-							<label for="target-color--b" class="col-lg-1 control-label">B:</label>
-							<div class="col-lg-2 field-3">
-								<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--b" maxlength="3" value="">
-							</div>
-
-							<div id="rgb-target-color" class="col-lg-1 colorblock"></div>
-
-						</div>
-					</form>
-			</tr></td>
-
-			<!-- Start of overlay color section -->
-
-			<tr><td>
-				<h4>Overlay Color</h4>
-				<p>The default color at 100% opacity of the object to be manipulated.</p>
-
-				<form class="form-horizontal" role="form">
-					 <div class="form-group">
-
-						<label for="overlay-color--r" class="col-lg-1 control-label">R:</label>
-						<div class="col-lg-2 field-1">
-							<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--r" maxlength="3" value="">
-						</div>
-
-						<label for="overlay-color--g" class="col-lg-1 control-label">G:</label>
-						<div class="col-lg-2 field-2">
-							<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--g" maxlength="3" value="">
-						</div>
-
-						<label for="overlay-color--b" class="col-lg-1 control-label">B:</label>
-						<div class="col-lg-2 field-3">
-							<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--b" maxlength="3" value="">
-						</div>
-
-						<div id="rgb-overlay-color" class="col-lg-1 colorblock"></div>
-
+					<label for="background-color--r" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">R:</label>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-1">
+						<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--r" maxlength="3" value="">
 					</div>
-				</form>
-			</tr></td>
 
-			<!-- Start of opacity section -->
-
-			<tr><td>
-				<h4>Overlay Opacity</h4>
-				<p>The calculated opacity of the overlay color to achieve the target color.</p>
-					<form class="form-horizontal" role="form">
-						<div class="form-group">
-							<div class="col-lg-2" style="width:120px;">
-								<input type="text" class="form-control" id="rgb-opacity" maxlength="4" value="">
-							</div>
-						<div><label for="opacity" class="col-lg-1 control-label percent">%</label></div>
-						</div>
-						</form>
-			</tr></td>
-			<tr><td>
-				<a href="#" style="display:block"><div class="calculate"><h3>CALCULATE</hr></div></a>
-			</tr></td>
-		</table>
-	</div>
-
-
-
-	<div class="tab-pane" id="hex">
-		<table id="tool">
-			<tr><td>
-				<h4>Background Color</h4>
-				<p>The bottom layer of color.</p>
-
-					<form class="form-horizontal" role="form">
-						 <div class="form-group">
-							<label for="r" class="col-lg-1 control-label">#</label>
-
-							<div class="col-lg-2 field-1" style="width:120px">
-								<input type="text" class="form-control color-picker-option hex-background-color" id="r" maxlength="6" value="FFFFFF">
-							</div>
-
-							<div id="hex-background-color" class="col-lg-1 colorblock"></div>
-
-						</div>
-					</form>
-			</td></tr>
-
-			<!-- Start of target color section -->
-			<tr><td>
-				<h4>Target Color</h4>
-				<p>The desired color of the object to be manipulated.</p>
-
-					<form class="form-horizontal" role="form">
-						 <div class="form-group">
-							<label for="r2" class="col-lg-1 control-label">#</label>
-
-							<div class="col-lg-2 field-1" style="width:120px">
-								<input type="text" class="form-control color-picker-option hex-target-color" id="r2" maxlength="6" value="FFFFFF">
-							</div>
-
-							<div id="hex-target-color" class="col-lg-1 colorblock"></div>
-
-						</div>
-					</form>
-			</tr></td>
-
-			<!-- Start of overlay color section -->
-
-			<tr><td>
-				<h4>Overlay Color</h4>
-				<p>The default color at 100% opacity of the object to be manipulated.</p>
-
-				<form class="form-horizontal" role="form">
-					 <div class="form-group">
-						<label for="r3" class="col-lg-1 control-label">#</label>
-
-					<div class="col-lg-2 field-1" style="width:120px">
-							<input type="text" class="form-control color-picker-option hex-overlay-color" id="r3" maxlength="6" value="FFFFFF">
-						</div>
-
-						<div id="hex-overlay-color" class="col-lg-1 colorblock"></div>
-
+					<label for="background-color--g" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">G:</label>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-2">
+						<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--g" maxlength="3" value="">
 					</div>
+
+					<label for="background-color--b" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">B:</label>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-3">
+						<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--b" maxlength="3" value="">
+					</div>
+
+					<div id="rgb-background-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock"></div>
+
+				</div>
+			</form>
+	</td></tr>
+
+	<!-- Start of target color section -->
+	<tr><td>
+		<h4>Target Color</h4>
+		<p>The desired color of the object to be manipulated.</p>
+
+			<form class="form-horizontal" role="form">
+				 <div class="form-group">
+
+					<label for="target-color--r" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">R:</label>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-1">
+						<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--r" maxlength="3" value="">
+					</div>
+
+					<label for="target-color--g" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">G:</label>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-2">
+						<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--g" maxlength="3" value="">
+					</div>
+
+					<label for="target-color--b" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">B:</label>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-3">
+						<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--b" maxlength="3" value="">
+					</div>
+
+					<div id="rgb-target-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock"></div>
+
+				</div>
+			</form>
+	</tr></td>
+
+	<!-- Start of overlay color section -->
+
+	<tr><td>
+		<h4>Overlay Color</h4>
+		<p>The default color at 100% opacity of the object to be manipulated.</p>
+
+		<form class="form-horizontal" role="form">
+			 <div class="form-group">
+
+				<label for="overlay-color--r" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">R:</label>
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-1">
+					<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--r" maxlength="3" value="">
+				</div>
+
+				<label for="overlay-color--g" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">G:</label>
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-2">
+					<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--g" maxlength="3" value="">
+				</div>
+
+				<label for="overlay-color--b" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label">B:</label>
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 field-3">
+					<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--b" maxlength="3" value="">
+				</div>
+
+				<div id="rgb-overlay-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock"></div>
+
+			</div>
+		</form>
+	</tr></td>
+
+	<!-- Start of opacity section -->
+
+	<tr><td>
+		<h4>Overlay Opacity</h4>
+		<p>The calculated opacity of the overlay color to achieve the target color.</p>
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<div class="col-xs-2"col-sm-2 col-md-2 col-lg-2  style="width:120px;">
+						<input type="text" class="form-control" id="rgb-opacity" maxlength="4" value="">
+					</div>
+				<div><label for="opacity" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 control-label percent">%</label></div>
+				</div>
 				</form>
-			</tr></td>
-
-			<!-- Start of opacity section -->
-
-			<tr><td>
-				<h4>Overlay Opacity</h4>
-				<p>The calculated opacity of the overlay color to achieve the target color.</p>
-					<form class="form-horizontal" role="form">
-						<div class="form-group">
-							<div class="col-lg-2" style="width:120px;">
-								<input type="text" class="form-control" id="opacity" maxlength="4" value="">
-							</div>
-						<div><label for="opacity" class="col-lg-1 control-label percent">%</label></div>
-						</div>
-						</form>
-			</tr></td>
-			<tr><td>
-				<a href="#" style="display:block"><div class="calculate"><h3>CALCULATE</hr></div></a>
-			</tr></td>
-		</table>
-	</div>
-</div>
+	</tr></td>
+	<tr><td>
+		<a href="#" style="display:block"><div class="calculate"><h3>CALCULATE</hr></div></a>
+	</tr></td>
+</table>
 
 <script src="http://code.jquery.com/jquery.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script>
-  $(function () {
-    $('#myTab a:first').tab('show')
-  })
-</script>
 <script src="app.js"></script>
 
 </body>
