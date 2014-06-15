@@ -111,15 +111,20 @@ border:0px;
 }
 
 .calculate, .calculate:hover {
-	padding: 10px 15px 10px 0px;
 	text-align: center;
 }
 
-.calculate:hover{
-	background-color: #eee;
+.reset, .reset:hover {
+	text-align: center;
+	font-weight:600;
 }
 
 a:hover{
 	text-decoration: none;
 }
 
+.error {
+	text-align: center;
+	color: #D9534F;
+	font-weight: 600;
+}

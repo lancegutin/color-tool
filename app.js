@@ -68,16 +68,16 @@ var COLOR = {
 		var result;
 
 		if ($row1.val() && $row2.val() && $row3.val()) {
-			$row4.val(($row2.val() - $row1.val()) / ($row3.val() - $row1.val()));
+			$row4.val(100*(($row2.val() - $row1.val()) / ($row3.val() - $row1.val())));
 		}
 		else if ($row1.val() && $row2.val() && $row4.val()) {
-			$row3.val(($row2.val() - (1 - $row4.val()) * $row1.val()) / $row4.val());
+			$row3.val(($row2.val() - (1 - ($row4.val()/100)) * $row1.val()) / ($row4.val()/100));
 		}
 		else if ($row1.val() && $row3.val() && $row4.val()) {
-			$row2.val(($row4.val() * $row3.val()) + (1 - $row4.val()) * $row1.val());
+			$row2.val((($row4.val()/100) * $row3.val()) + (1 - ($row4.val()/100)) * $row1.val());
 		}
 		else if ($row2.val() && $row3.val() && $row4.val()) {
-			$row1.val(($row2.val() - $row4.val() * $row3.val()) / (1 - $row4.val()));
+			$row1.val(($row2.val() - ($row4.val()/100) * $row3.val()) / (1 - ($row4.val()/100)));
 		}
 	}
 
