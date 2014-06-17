@@ -51,7 +51,7 @@ var COLOR = {
 		if ($item.val() < 0) $item.val(0);
 
 		// Assign color values to other inputs
-		$targets.val($item.val());
+		$targets.val(Math.round($item.val()));
 
 		color = this.rgbToHex($targets.eq(0).val(), $targets.eq(1).val(), $targets.eq(2).val());
 
