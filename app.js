@@ -41,21 +41,24 @@ var COLOR = {
 
 	updateColor: function(e) {
 		var $item            = $(e.currentTarget);
-		var className        = $item.attr('class');
-		var targetClassName  = '.'+className.substr(className.lastIndexOf(" ") + 1);
-		var $targets          = $(targetClassName);
-		var $closestColorBox = $targets.eq(0).parents('.form-group').find('.colorblock');
-		var color;
 
-		if ($item.val() > 255) $item.val(255);
-		if ($item.val() < 0) $item.val(0);
+		if ($item.val() != '') {
+			var className        = $item.attr('class');
+			var targetClassName  = '.'+className.substr(className.lastIndexOf(" ") + 1);
+			var $targets          = $(targetClassName);
+			var $closestColorBox = $targets.eq(0).parents('.form-group').find('.colorblock');
+			var color;
 
-		// Assign color values to other inputs
-		$targets.val(Math.round($item.val()));
+			if ($item.val() > 255) $item.val(255);
+			if ($item.val() < 0) $item.val(0);
 
-		color = this.rgbToHex($targets.eq(0).val(), $targets.eq(1).val(), $targets.eq(2).val());
+			// Assign color values to other inputs
+			$targets.val(Math.round($item.val()));
 
-		$closestColorBox.css('background-color', '#'+color);
+			color = this.rgbToHex($targets.eq(0).val(), $targets.eq(1).val(), $targets.eq(2).val());
+
+			$closestColorBox.css('background-color', '#'+color);
+		}
 	},
 
 	updateOverlayOpacity: function(e) {
