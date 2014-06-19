@@ -4,10 +4,9 @@ body {
 	padding: 0;
 }
 #colors {
-	font-family: Monaco, 'Courier New', monospace;
 	border-collapse:collapse;
 	border:2px solid #545454;
-
+	font-family: Monaco, 'Courier New', monospace;
 }
 #colors td, #colors tr {
 	padding:4px 20px 4px 20px;
@@ -18,29 +17,29 @@ body {
 	vertical-align: bottom;
 }
 .field-1 {
-	width:82px;
-	margin-right:0px;
 	margin-left:-10px;
+	margin-right:0px;
+	width:82px;
 }
 .field-2 {
-	width:82px;
-	margin-right:0px;
 	margin-left:-10px;
+	margin-right:0px;
+	width:82px;
 }
 .field-3 {
-	width:82px;
-	margin-right:20px;
 	margin-left:-10px;">
+	margin-right:20px;
+	width:82px;
 }
 
 .colorblock {
-	width:34px;
-	height:34px;
-	margin-left:20px;
 	border: 1px solid #ccc;
 	-webkit-border-radius: 3px;
 	   -moz-border-radius: 3px;
 	        border-radius: 3px;
+	height:34px;
+	margin-left:20px;
+	width:34px;
 }
 
 .box {
@@ -49,12 +48,12 @@ body {
 
 #tool {
 	border-collapse:collapse;
-	width:460px;
 	margin: 0 auto;
+	width:460px;
 }
 
 #tool tr, #tool td {
-	border:1px solid #CCCCCC;
+	border: 1px solid #CCCCCC;
 	border-top: 1px solid #FFF;
 	padding: 30px 20px 30px 20px;
 }
@@ -69,10 +68,10 @@ h3 {
 }
 
 h4 {
-	margin-top:0px;
-	margin-bottom:4px;
 	font-size:16px;
 	font-weight:bold;
+	margin-bottom:4px;
+	margin-top:0px;
 }
 
 input {
@@ -84,8 +83,8 @@ input {
 }
 
 .percent {
-	margin-left:-20px;
 	font-weight:bold;
+	margin-left:-20px;
 }
 
 .tabs {
@@ -93,12 +92,12 @@ input {
 }
 
 .nav-tabs {
-	border-top: 1px;
-	border-right:1px;
 	border-bottom:0px;
-	border-left:1px;
-	border-style:solid;
 	border-color:#ccc;
+	border-left:1px;
+	border-right:1px;
+	border-style:solid;
+	border-top: 1px;
 }
 
 .nav-tabs>li>a {
@@ -115,8 +114,8 @@ border:0px;
 }
 
 .reset, .reset:hover {
-	text-align: center;
 	font-weight:600;
+	text-align: center;
 }
 
 a:hover{
@@ -124,7 +123,7 @@ a:hover{
 }
 
 .error {
-	text-align: center;
 	color: #D9534F;
 	font-weight: 600;
+	text-align: center;
 }
