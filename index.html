@@ -30,7 +30,7 @@
 						<input type="text" class="form-control color-picker-option rgb-background-color" id="background-color--b" maxlength="3" value="">
 					</div>
 
-					<div id="rgb-background-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock"></div>
+					<input id="rgb-background-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock" disabled>
 
 				</div>
 			</form>
@@ -59,7 +59,7 @@
 						<input type="text" class="form-control color-picker-option rgb-target-color" id="target-color--b" maxlength="3" value="">
 					</div>
 
-					<div id="rgb-target-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock"></div>
+					<input id="rgb-target-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock" disabled>
 
 				</div>
 			</form>
@@ -89,7 +89,7 @@
 					<input type="text" class="form-control color-picker-option rgb-overlay-color" id="overlay-color--b" maxlength="3" value="">
 				</div>
 
-				<div id="rgb-overlay-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock"></div>
+				<input id="rgb-overlay-color" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 colorblock" disabled>
 
 			</div>
 		</form>
@@ -110,6 +110,7 @@
 				</form>
 	</tr></td>
 	<tr><td>
+		<p class="error">There are a few errors with your result.</p>
 		<a href="#" style="display:block"><div class="calculate"><h3>CALCULATE</h3></div></a>
 		<a href="#" style="display:block"><div class="reset">CLEAR</div></a>
 	</tr></td>
